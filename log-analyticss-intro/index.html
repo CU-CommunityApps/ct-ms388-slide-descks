@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title></title>
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/cornell.css" />
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>Azure Log Analytics</h2>
+          <h3>Workspaces and Queries</h3>
+        </section>
+        <section>
+          <h2>Log Analytics Workspaces</h2>
+          <ul>
+            <li class="fragment">
+              A Log Analytics workspace is a unique environment for log data
+              from Azure Monitor and other Azure services
+            </li>
+            <li class="fragment">
+              Each workspace has its own data repository and configuration but
+              may combine data from multiple service
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h2>Log Analytics Queries</h2>
+          <ul>
+            <li class="fragment">
+              Log Queries are written using the Kusto Query Language (KQL)
+            </li>
+            <li class="fragment">
+              Log Analytics is the primary tool in the Azure portal for editing
+              log queries and analyzing their results. You'll typically write
+              and test your Queries in Log Analytics before copying to their
+              final location
+            </li>
+          </ul>
+        </section>
+        <section data-auto-animate>
+          <h3>KQL Query Examples in Use</h3>
+          <h4 data-id="code-title" class="fragment">Express Route Bursting Alerts</h4>
+          <pre data-id="code-animation" class="fragment">
+AzureMetrics
+| where MetricName == 'BitsOutPerSecond' and Maximum >= 50000000
+| order by TimeGenerated desc
+| where TimeGenerated > ago(5m)
+| summarize BitsOutPerSecond = sum(Maximum) by TimeGenerated
+            </pre>
+            <h4 data-id="code-title" class="fragment">VMctl in Azure Monitoring</h4>
+            <pre data-id="code-animation" class="fragment">
+exceptions 
+| where cloud_RoleName == 'vmctl-functions' 
+  and timestamp >= ago(5m) 
+  and innermostMessage !has "INTENTIONALLY STOPPED"
+            </pre>  
+        </section>
+        <section style="font-size: 1.8rem">
+          <h3>Links/Resources</h3>
+          <ul>
+            <li>
+              Log Analytics Workspace Overview
+              <br />
+              https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview
+            </li>
+            <li>
+              Log Query Overview
+              <br />
+              https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview
+            </li>
+            <li>
+              Kusto Query Language (KQL) Overview
+              <br />
+              https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/
+            </li>
+            <li>
+              Log Analytics Workspaces Service Limits
+              <br />
+              https://docs.microsoft.com/en-us/azure/azure-monitor/service-limits#log-analytics-workspaces
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
