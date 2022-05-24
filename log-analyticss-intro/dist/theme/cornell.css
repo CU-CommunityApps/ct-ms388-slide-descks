@@ -17,10 +17,10 @@ section.has-light-background h6 {
  * GLOBAL STYLES
  *********************************************/
 :root {
-  --r-background-color: #f7f7f7;
+  --r-background-color: #222;
   --r-main-font: Lato, sans-serif;
   --r-main-font-size: 2.25rem;
-  --r-main-color: #222222;
+  --r-main-color: #f7f7f7;
   --r-block-margin: 20px;
   --r-heading-margin: 0 0 20px 0;
   --r-heading-font: Lato, sans-serif;
@@ -28,7 +28,7 @@ section.has-light-background h6 {
   --r-heading-line-height: 1.2;
   --r-heading-letter-spacing: normal;
   --r-heading-text-transform: uppercase;
-  --r-heading-text-shadow: 2px 2px 2px #222;
+  --r-heading-text-shadow: 2px 2px 2px #53565A;
   --r-heading-font-weight: normal;
   --r-heading1-text-shadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb,
     0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1),
