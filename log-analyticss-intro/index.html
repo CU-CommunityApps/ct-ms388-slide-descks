@@ -49,21 +49,27 @@
         </section>
         <section data-auto-animate>
           <h3>KQL Query Examples in Use</h3>
-          <h4 data-id="code-title" class="fragment">Express Route Bursting Alerts</h4>
-          <pre data-id="code-animation" class="fragment">
+          <div class="fragment">
+            <h4 data-id="code-title">
+              Express Route Bursting Alerts
+            </h4>
+            <pre data-id="code-animation">
 AzureMetrics
 | where MetricName == 'BitsOutPerSecond' and Maximum >= 50000000
 | order by TimeGenerated desc
 | where TimeGenerated > ago(5m)
 | summarize BitsOutPerSecond = sum(Maximum) by TimeGenerated
             </pre>
-            <h4 data-id="code-title" class="fragment">VMctl in Azure Monitoring</h4>
-            <pre data-id="code-animation" class="fragment">
-exceptions 
-| where cloud_RoleName == 'vmctl-functions' 
-  and timestamp >= ago(5m) 
+          </div>
+          <div class="fragment">
+            <h4 data-id="code-title">VMctl in Azure Monitoring</h4>
+            <pre data-id="code-animation">
+exceptions
+| where cloud_RoleName == 'vmctl-functions'
+  and timestamp >= ago(5m)
   and innermostMessage !has "INTENTIONALLY STOPPED"
-            </pre>  
+            </pre>
+          </div>
         </section>
         <section style="font-size: 1.8rem">
           <h3>Links/Resources</h3>
@@ -71,22 +77,34 @@ exceptions
             <li>
               Log Analytics Workspace Overview
               <br />
-              https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview
+              <a
+                href="https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview"
+                >https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview</a
+              >
             </li>
             <li>
               Log Query Overview
               <br />
-              https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview
+              <a
+                href="https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview"
+                >https://docs.microsoft.com/en-us/azure/azure-monitor/logs/log-query-overview</a
+              >
             </li>
             <li>
               Kusto Query Language (KQL) Overview
               <br />
-              https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/
+              <a
+                href="https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/"
+                >https://docs.microsoft.com/en-us/azure/data-explorer/kusto/query/</a
+              >
             </li>
             <li>
               Log Analytics Workspaces Service Limits
               <br />
-              https://docs.microsoft.com/en-us/azure/azure-monitor/service-limits#log-analytics-workspaces
+              <a
+                href="https://docs.microsoft.com/en-us/azure/azure-monitor/service-limits#log-analytics-workspaces"
+                >https://docs.microsoft.com/en-us/azure/azure-monitor/service-limits#log-analytics-workspaces</a
+              >
             </li>
           </ul>
         </section>
