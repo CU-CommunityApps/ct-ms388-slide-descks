@@ -28,6 +28,10 @@
               from Azure Monitor and other Azure services
             </li>
             <li class="fragment">
+              Azure Monitor is a solution for collecting, analyzing, and acting
+              on telemetry from your cloud/on-premises resource
+            </li>
+            <li class="fragment">
               Each workspace has its own data repository and configuration but
               may combine data from multiple service
             </li>
@@ -65,7 +69,7 @@ AzureMetrics
             <h4 data-id="code-title">VMctl in Azure Monitoring</h4>
             <pre data-id="code-animation">
 exceptions
-| where cloud_RoleName == 'vmctl-functions'
+| where cloud_RoleName == 'production-app-name'
   and timestamp >= ago(5m)
   and innermostMessage !has "INTENTIONALLY STOPPED"
             </pre>
