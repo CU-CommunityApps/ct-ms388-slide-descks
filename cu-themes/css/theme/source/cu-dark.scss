@@ -1,0 +1,190 @@
+/**
+ * Cornell light theme for reveal.js
+ * Author: mikesprague http://github.com/Walther
+ *
+ * Designed to be used with highlight.js theme
+ * "night-owl.css" available from
+ * https://github.com/isagalaev/highlight.js/
+ *
+ * For other themes, change $codeBackground accordingly.
+ *
+ */
+
+// Default mixins and settings -----------------
+@import '../template/mixins';
+@import '../template/settings';
+// ---------------------------------------------
+
+// theme-specific fonts
+$systemFontStack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
+  Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+$monoFontStack: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
+  'Courier New', monospace;
+$serifFontStack: Cambria, 'Hoefler Text', Utopia, 'Liberation Serif',
+  'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+
+// Cornell colors from https://brand.cornell.edu/design-center/colors/
+// primary  palette
+$carnelian: #b31b1b;
+$darkGrey: #222;
+$white: #fff;
+// secondary  palette
+$darkWarmGrey: #a2998b;
+$lightGrey: #f7f7f7;
+$seaGrey: #9fad9f;
+// accents
+$linkBlue: #006699;
+$greenOne: #6eb43f;
+$greenTwo: #4b7b2b;
+$greenThree: #578e32;
+$orangeOne: #f8981d;
+$orangeTwo: #d47500;
+$redOne: #ef4035;
+$redTwo: #df1e12;
+$navy: #073949;
+
+// night-owl background color
+$codeBackground: #011627;
+
+// background
+$backgroundColor: $darkGrey;
+
+// Main text
+$mainFont: $systemFontStack;
+$mainColor: $lightGrey;
+
+// Headings
+$headingFont: $systemFontStack;
+$headingColor: $lightGrey;
+$headingTextShadow: 2px 2px 2px $darkWarmGrey;
+
+// h1 shadow, borrowed humbly from
+// (c) Default theme by Hakim El Hattab
+$heading1TextShadow: 0 1px 0 #ccc, 0 2px 0 #c9c9c9, 0 3px 0 #bbb,
+  0 4px 0 #b9b9b9, 0 5px 0 #aaa, 0 6px 1px rgba(0, 0, 0, 0.1),
+  0 0 5px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.3),
+  0 3px 5px rgba(0, 0, 0, 0.2), 0 5px 10px rgba(0, 0, 0, 0.25),
+  0 20px 20px rgba(0, 0, 0, 0.15);
+
+// Links
+$linkColor: $carnelian;
+$linkColorHover: lighten($linkBlue, 20%);
+
+// Text selection
+$selectionBackgroundColor: $carnelian;
+$selectionColor: $white;
+
+// Change text colors against dark slide backgrounds
+@include light-bg-text-color(#222);
+@include dark-bg-text-color(#f7f7f7);
+
+// Theme template ------------------------------
+@import '../template/theme';
+// ---------------------------------------------
+
+// some overrides after theme template import
+.reveal-viewport {
+  // border-top: 2rem solid $carnelian;
+  height: calc(100vh - 2rem);
+}
+
+section.has-light-background {
+  p,
+  h1,
+  h2,
+  h3,
+  h4 {
+    text-shadow: none;
+  }
+}
+
+.reveal h1,
+.reveal h2,
+.reveal h3,
+.reveal h4,
+.reveal h5,
+.reveal h6 {
+  font-weight: 700;
+  text-transform: none;
+  text-shadow: none;
+}
+
+.reveal h2 {
+  font-family: $systemFontStack !important;
+  font-weight: 400 !important;
+  color: $darkWarmGrey;
+}
+
+.title-slide {
+  text-align: left;
+  padding-top: 15rem;
+  padding-left: 5rem;
+
+  h2 {
+    color: $darkGrey !important;
+  }
+}
+
+.title-and-content {
+  text-align: left;
+  padding-left: 5rem;
+  top: 5rem !important;
+}
+
+.section-header {
+  section.section-header {
+    margin-top: -15rem !important;
+  }
+
+  h3 {
+    font-size: 3rem !important;
+  }
+}
+
+.reveal h3 {
+  font-family: $serifFontStack !important;
+  font-weight: 300 !important;
+  font-size: 2.25rem;
+}
+
+.reveal p code {
+  background-color: $codeBackground;
+  display: inline-block;
+  border-radius: 7px;
+  font-family: $monoFontStack !important;
+}
+
+// increase size of code displays
+code table {
+  font-size: 1.2rem !important;
+  line-height: 1.5;
+}
+
+.reveal small code {
+  vertical-align: baseline;
+}
+
+.cu-logo-bg {
+  background-repeat: no-repeat !important;
+  background-size: 20vh !important;
+  background-position: 5vw 10vh !important;
+  background-image: url('../../../dist/cornell_seal_simple_b31b1b.svg') !important;
+}
+
+.cu-top-bar {
+  width: 100%;
+  height: 2rem;
+  background-color: $carnelian;
+  font-size: 1.3rem;
+  line-height: 2rem;
+  text-align: center;
+  position: absolute;
+  padding: 0.2rem 0;
+  top: 0;
+  font-family: $serifFontStack;
+  color: $lightGrey;
+}
+
+.cu-watermark {
+  visibility: hidden;
+}
