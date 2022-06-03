@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title>reveal.js</title>
+    <link rel="stylesheet" href="../dist/reset.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/theme/cu-dark.css" />
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../plugin/highlight/night-owl.css" />
+  </head>
+  <body>
+    <!-- red bar at top of slides, do not remove -->
+    <div class="cu-top-bar">
+      <span class="cu-watermark">Cornell University</span>
+    </div>
+    <!-- slide containers, do not remove -->
+    <div class="reveal">
+      <div class="slides">
+        <!-- add slides here -->
+        <section class="title-slide show-cu-logo" data-markdown>
+          <textarea data-template>
+            ## Title Slide
+            ### Some additional text
+          </textarea>
+        </section>
+        <section class="section-header show-cu-logo" data-markdown>
+          <textarea data-template>
+            ## Section Header Slide
+            ### About this section
+          </textarea>
+        </section>
+        <section class="title-and-content" data-markdown>
+          <textarea data-template>
+            ## Slide Three
+            ### Some bulleted content
+            - One
+            - Two
+            - Three
+          </textarea>
+        </section>
+        <section class="title-and-content" data-transition="fade">
+          <aside class="notes">These are some notes</aside>
+          <h2>Slide Four</h2>
+          <h3>With example code block</h3>
+          <pre><code data-trim data-language="js" data-noescape data-line-numbers="15-21">
+            import axios from 'axios';
+
+            import { handleError } from '../lib/helpers.js';
+
+            // eslint-disable-next-line no-unused-vars
+            export default async (context, req) => {
+              try {
+                await axios
+                  .get('https://icanhazdadjoke.com/', {
+                    headers: {
+                      Accept: 'application/json',
+                      'User-Agent': 'Azure Function App - HTTP Endpoint Demo',
+                    },
+                  })
+                  .then((response) => {
+                    const { joke } = response.data;
+                    context.res = {
+                      status: 200,
+                      body: JSON.stringify({ joke }),
+                    };
+                  })
+                  .catch((error) => {
+                    // bubble error up to try/catch so it throws 500
+                    throw error;
+                  });
+              } catch (error) {
+                handleError(error, context);
+                context.res = {
+                  status: 500,
+                  body: JSON.stringify({
+                    status: 500,
+                    error,
+                  }),
+                };
+              }
+            };
+          </code></pre>
+        </section>
+      </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        width: "100%",
+        height: "100%",
+        autoAnimate: false,
+        autoAnimateUnmatched: false,
+        transition: "fade",
+        backgroundTransition: "none",
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+
+      // do not remove
+      // method to manage showing cu logo or top watermark (text)
+      const toggleLogoAndWatermark = (slide) => {
+        const elToModify = document.querySelector(
+          "div.slide-background.present"
+        );
+        const watermarkEl = document.querySelector(".cu-watermark");
+        if (
+          slide.classList.contains("show-cu-logo") &&
+          slide.classList.contains("present") &&
+          !slide.classList.contains("past") &&
+          !slide.classList.contains("future")
+        ) {
+          elToModify.classList.add("cu-logo-bg");
+          elToModify.classList.remove("show-cu-logo");
+          watermarkEl.style.visibility = "hidden";
+        } else {
+          elToModify.classList.remove("cu-logo-bg");
+          watermarkEl.style.visibility = "visible";
+        }
+      };
+      // add our method to ready and slidetransitionend events
+      Reveal.on("ready", (event) => {
+        toggleLogoAndWatermark(event.currentSlide);
+      });
+      Reveal.on("slidetransitionend", (event) => {
+        toggleLogoAndWatermark(event.currentSlide);
+      });
+    </script>
+  </body>
+</html>
