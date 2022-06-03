@@ -9,18 +9,21 @@
     <title></title>
     <link rel="stylesheet" href="../dist/reset.css" />
     <link rel="stylesheet" href="../dist/reveal.css" />
-    <link rel="stylesheet" href="../dist/theme/log-analytics-intro.css" />
+    <link rel="stylesheet" href="../dist/theme/cu-light.css" />
     <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="../plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../plugin/highlight/night-owl.css" />
   </head>
   <body>
+    <div class="cu-top-bar">
+      <span class="cu-watermark">Cornell University</span>
+    </div>
     <div class="reveal">
       <div class="slides">
-        <section>
+        <section class="title-slide show-cu-logo">
           <h2>Azure Log Analytics</h2>
           <h3>Workspaces and Queries</h3>
         </section>
-        <section>
+        <section class="title-and-content">
           <h2>Log Analytics Workspaces</h2>
           <ul>
             <li class="fragment">
@@ -37,7 +40,7 @@
             </li>
           </ul>
         </section>
-        <section>
+        <section class="title-and-content">
           <h2>Log Analytics and Log Queries</h2>
           <ul>
             <li class="fragment">
@@ -51,30 +54,34 @@
             </li>
           </ul>
         </section>
-        <section data-auto-animate>
-          <h3>Example Log Queries (KQL) in Use</h3>
+        <section class="title-and-content">
+          <h2>Example Log Queries (KQL) in Use</h2>
           <div class="fragment">
-            <h4 data-id="code-title">Express Route Bursting Alerts</h4>
-            <pre data-id="code-animation">
+            <h3 data-id="code-title">Express Route Bursting Alerts</h3>
+            <pre
+              data-id="code-animation"
+            ><code  data-trim data-noescape data-line-numbers>
 AzureMetrics
 | where MetricName == 'BitsOutPerSecond' and Maximum >= 50000000
 | order by TimeGenerated desc
 | where TimeGenerated > ago(5m)
 | summarize BitsOutPerSecond = sum(Maximum) by TimeGenerated
-            </pre>
+            </code></pre>
           </div>
           <div class="fragment">
-            <h4 data-id="code-title">VMctl in Azure Monitoring</h4>
-            <pre data-id="code-animation">
+            <h3 data-id="code-title">VMctl in Azure Monitoring</h3>
+            <pre
+              data-id="code-animation"
+            ><code  data-trim data-noescape data-line-numbers>
 exceptions
 | where cloud_RoleName == 'production-app-name'
   and timestamp >= ago(5m)
   and innermostMessage !has "INTENTIONALLY STOPPED"
-            </pre>
+            </code></pre>
           </div>
         </section>
         <section style="font-size: 1.8rem">
-          <h3>Links/Resources</h3>
+          <h2>Links/Resources</h2>
           <ul>
             <li>
               Log Analytics Workspace Overview
@@ -122,9 +129,42 @@ exceptions
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-
+        width: "100%",
+        height: "100%",
+        autoAnimate: false,
+        autoAnimateUnmatched: false,
+        transition: "fade",
+        backgroundTransition: "none",
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+
+      const toggleLogoAndWatermark = (slide) => {
+        const elToModify = document.querySelector(
+          "div.slide-background.present"
+        );
+        const watermarkEl = document.querySelector(".cu-watermark");
+        // console.log(watermarkEl);
+        if (
+          slide.classList.contains("show-cu-logo") &&
+          slide.classList.contains("present") &&
+          !slide.classList.contains("past") &&
+          !slide.classList.contains("future")
+        ) {
+          elToModify.classList.add("cu-logo-bg");
+          elToModify.classList.remove("show-cu-logo");
+          watermarkEl.style.visibility = "hidden";
+        } else {
+          elToModify.classList.remove("cu-logo-bg");
+          watermarkEl.style.visibility = "visible";
+        }
+      };
+
+      Reveal.on("ready", (event) => {
+        toggleLogoAndWatermark(event.currentSlide);
+      });
+      Reveal.on("slidetransitionend", (event) => {
+        toggleLogoAndWatermark(event.currentSlide);
       });
     </script>
   </body>
