@@ -7,11 +7,11 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title>reveal.js</title>
-    <link rel="stylesheet" href="/dist/reset.css" />
-    <link rel="stylesheet" href="/dist/reveal.css" />
-    <link rel="stylesheet" href="/dist/theme/cu-light.css" />
+    <link rel="stylesheet" href="./dist/reset.css" />
+    <link rel="stylesheet" href="./dist/reveal.css" />
+    <link rel="stylesheet" href="./dist/theme/cu-light.css" />
     <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="/plugin/highlight/night-owl.css" />
+    <link rel="stylesheet" href="./plugin/highlight/night-owl.css" />
   </head>
   <body>
     <div class="cu-top-bar">
@@ -70,51 +70,51 @@
       </div>
     </div>
 
-    <script src="/dist/reveal.js"></script>
-    <script src="/plugin/notes/notes.js"></script>
-    <script src="/plugin/markdown/markdown.js"></script>
-    <script src="/plugin/highlight/highlight.js"></script>
+    <script src="./dist/reveal.js"></script>
+    <script src="./plugin/notes/notes.js"></script>
+    <script src="./plugin/markdown/markdown.js"></script>
+    <script src="./plugin/highlight/highlight.js"></script>
     <script>
       // More info about initialization & config:
       // - https://revealjs.com/initialization/
       // - https://revealjs.com/config/
       Reveal.initialize({
         hash: true,
-        width: '100%',
-        height: '100%',
+        width: "100%",
+        height: "100%",
         autoAnimate: false,
         autoAnimateUnmatched: false,
-        transition: 'fade',
-        backgroundTransition: 'none',
+        transition: "fade",
+        backgroundTransition: "none",
         // Learn about plugins: https://revealjs.com/plugins/
         plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
       });
 
       const toggleLogoAndWatermark = (slide) => {
         const elToModify = document.querySelector(
-          'div.slide-background.present',
+          "div.slide-background.present"
         );
-        const watermarkEl = document.querySelector('.cu-watermark');
+        const watermarkEl = document.querySelector(".cu-watermark");
         // console.log(watermarkEl);
         if (
-          slide.classList.contains('show-cu-logo') &&
-          slide.classList.contains('present') &&
-          !slide.classList.contains('past') &&
-          !slide.classList.contains('future')
+          slide.classList.contains("show-cu-logo") &&
+          slide.classList.contains("present") &&
+          !slide.classList.contains("past") &&
+          !slide.classList.contains("future")
         ) {
-          elToModify.classList.add('cu-logo-bg');
-          elToModify.classList.remove('show-cu-logo');
-          watermarkEl.style.visibility = 'hidden';
+          elToModify.classList.add("cu-logo-bg");
+          elToModify.classList.remove("show-cu-logo");
+          watermarkEl.style.visibility = "hidden";
         } else {
-          elToModify.classList.remove('cu-logo-bg');
-          watermarkEl.style.visibility = 'visible';
+          elToModify.classList.remove("cu-logo-bg");
+          watermarkEl.style.visibility = "visible";
         }
       };
 
-      Reveal.on('ready', (event) => {
+      Reveal.on("ready", (event) => {
         toggleLogoAndWatermark(event.currentSlide);
       });
-      Reveal.on('slidetransitionend', (event) => {
+      Reveal.on("slidetransitionend", (event) => {
         toggleLogoAndWatermark(event.currentSlide);
       });
     </script>
