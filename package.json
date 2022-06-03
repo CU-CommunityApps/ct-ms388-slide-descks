@@ -11,6 +11,7 @@
     "move-built": "cp -r ./reveal.js/dist ./reveal.js/plugin ./docs",
     "reset-submodule": "cd ./reveal.js && git checkout -- .",
     "build": "npm run copy-themes && npm run copy-settings && npm run copy-highlight-themes && npm run build-themes && npm run move-built && npm run reset-submodule",
+    "start": "npm run copy-themes && npm run copy-settings && npm run copy-highlight-themes && cd ./reveal.js && npm start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
