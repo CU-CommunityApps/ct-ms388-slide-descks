@@ -11,10 +11,9 @@ Also includes a custom [Reveal.js](https://revealjs.com/) theme based on the cur
 Handful of sample slides showing the CU theme for Reveal.js
 
 - Default (light) Demo: [https://cu-communityapps.github.io/ct-ms388-slide-decks/demo/](https://cu-communityapps.github.io/ct-ms388-slide-decks/demo/)
-- Source: [https://github.com/CU-CommunityApps/ct-ms388-slide-decks/tree/main/docs/demo](https://github.com/CU-CommunityApps/ct-ms388-slide-decks/tree/main/docs/demo)
-
+  - Source: [https://github.com/CU-CommunityApps/ct-ms388-slide-decks/tree/main/docs/demo](https://github.com/CU-CommunityApps/ct-ms388-slide-decks/tree/main/docs/demo)
 - Dark Theme Demo: [https://cu-communityapps.github.io/ct-ms388-slide-decks/demo-dark/](https://cu-communityapps.github.io/ct-ms388-slide-decks/demo-dark/)
-- Source: [https://github.com/CU-CommunityApps/ct-ms388-slide-decks/tree/main/docs/demo-dark](https://github.com/CU-CommunityApps/ct-ms388-slide-decks/tree/main/docs/demo-dark)
+  - Source: [https://github.com/CU-CommunityApps/ct-ms388-slide-decks/tree/main/docs/demo-dark](https://github.com/CU-CommunityApps/ct-ms388-slide-decks/tree/main/docs/demo-dark)
 
 ### Azure Log Analytics (Workspaces and Queries) Intro
 
