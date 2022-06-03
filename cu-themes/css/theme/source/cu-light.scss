@@ -11,17 +11,17 @@
  */
 
 // Default mixins and settings -----------------
-@import '../template/mixins';
-@import '../template/settings';
+@import "../template/mixins";
+@import "../template/settings";
 // ---------------------------------------------
 
 // theme-specific fonts
-$systemFontStack: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
-  Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
-$monoFontStack: SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-  'Courier New', monospace;
-$serifFontStack: Cambria, 'Hoefler Text', Utopia, 'Liberation Serif',
-  'Nimbus Roman No9 L Regular', Times, 'Times New Roman', serif;
+$systemFontStack: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica,
+  Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$monoFontStack: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+  "Courier New", monospace;
+$serifFontStack: Cambria, "Hoefler Text", Utopia, "Liberation Serif",
+  "Nimbus Roman No9 L Regular", Times, "Times New Roman", serif;
 
 // Cornell colors from https://brand.cornell.edu/design-center/colors/
 // primary  palette
@@ -79,7 +79,7 @@ $selectionColor: $white;
 @include dark-bg-text-color(#f7f7f7);
 
 // Theme template ------------------------------
-@import '../template/theme';
+@import "../template/theme";
 // ---------------------------------------------
 
 // some overrides after theme template import
@@ -168,7 +168,7 @@ code table {
   background-repeat: no-repeat !important;
   background-size: 20vh !important;
   background-position: 5vw 10vh !important;
-  background-image: url('../../../dist/cornell_seal_simple_b31b1b.svg') !important;
+  background-image: url("assets/cornell_seal_simple_b31b1b.svg") !important;
 }
 
 .cu-top-bar {

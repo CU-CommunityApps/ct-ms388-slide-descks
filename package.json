@@ -1,0 +1,20 @@
+{
+  "name": "ct-ms388-slide-decks",
+  "version": "1.0.0",
+  "description": "A place to store and serve my slide decks",
+  "private": true,
+  "scripts": {
+    "build-themes": "cp ./cu-themes/css/theme/source/*.scss ./reveal.js/css/theme/source && cd ./reveal.js && npm install && npm run build -- css-themes",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "url": "https://github.com/CU-CommunityApps/ct-ms388-slide-decks"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/CU-CommunityApps/ct-ms388-slide-decks/issues"
+  },
+  "homepage": "https://github.com/CU-CommunityApps/ct-ms388-slide-decks#readme"
+}
