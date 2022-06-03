@@ -4,7 +4,13 @@
   "description": "A place to store and serve my slide decks",
   "private": true,
   "scripts": {
-    "build-themes": "cp ./cu-themes/css/theme/source/*.scss ./reveal.js/css/theme/source && cd ./reveal.js && npm install && npm run build -- css-themes",
+    "copy-themes": "cp ./cu-themes/css/theme/source/*.scss ./reveal.js/css/theme/source",
+    "copy-settings": "cp ./cu-themes/css/theme/template/*.scss ./reveal.js/css/theme/template",
+    "copy-highlight-themes": "cp ./cu-themes/plugin/highlight/*.css ./reveal.js/plugin/highlight",
+    "build-themes": "cd ./reveal.js && npm install && npm run build -- css-themes && cd ..",
+    "move-built": "cp -r ./reveal.js/dist ./reveal.js/plugin ./docs",
+    "reset-submodule": "cd ./reveal.js && git checkout -- .",
+    "build": "npm run copy-themes && npm run copy-settings && npm run copy-highlight-themes && npm run build-themes && npm run move-built && npm run reset-submodule",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
