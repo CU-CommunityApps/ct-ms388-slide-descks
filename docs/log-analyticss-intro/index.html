@@ -7,11 +7,11 @@
       content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
     />
     <title></title>
-    <link rel="stylesheet" href="dist/reset.css" />
-    <link rel="stylesheet" href="dist/reveal.css" />
-    <link rel="stylesheet" href="dist/theme/cornell.css" />
+    <link rel="stylesheet" href="../dist/reset.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/theme/log-analytics-intro.css" />
     <!-- Theme used for syntax highlighted code -->
-    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+    <link rel="stylesheet" href="../plugin/highlight/monokai.css" />
   </head>
   <body>
     <div class="reveal">
@@ -54,9 +54,7 @@
         <section data-auto-animate>
           <h3>Example Log Queries (KQL) in Use</h3>
           <div class="fragment">
-            <h4 data-id="code-title">
-              Express Route Bursting Alerts
-            </h4>
+            <h4 data-id="code-title">Express Route Bursting Alerts</h4>
             <pre data-id="code-animation">
 AzureMetrics
 | where MetricName == 'BitsOutPerSecond' and Maximum >= 50000000
@@ -114,10 +112,10 @@ exceptions
         </section>
       </div>
     </div>
-    <script src="dist/reveal.js"></script>
-    <script src="plugin/notes/notes.js"></script>
-    <script src="plugin/markdown/markdown.js"></script>
-    <script src="plugin/highlight/highlight.js"></script>
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
     <script>
       // More info about initialization & config:
       // - https://revealjs.com/initialization/
