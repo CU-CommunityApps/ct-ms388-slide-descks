@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
+    <title></title>
+    <link rel="stylesheet" href="../dist/reset.css" />
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/theme/cu-light.css" />
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="../plugin/highlight/night-owl.css" />
+  </head>
+  <body>
+    <!-- red bar at top of slides, do not remove -->
+    <div class="cu-top-bar">
+      <span class="cu-watermark">Cornell University</span>
+    </div>
+    <!-- slide containers, do not remove -->
+    <div class="reveal">
+      <div class="slides">
+        <!-- add slides here -->
+        <section class="title-slide show-cu-logo" data-markdown>
+          <textarea data-template>
+            ## Sending Azure Service Health Alerts<br>to MS Teams Channels
+            ### Presented by Michael Sprague (ms388@cornell.edu)
+          </textarea>
+        </section>
+        <section class="title-and-content" data-markdown>
+          <textarea data-template>
+            ## Contents
+            - Intro and background
+            - What was the problem we were trying to solve?
+            - Solution overview and demo
+            - Challenges we encountered
+            - Guidance for others to leverage this solution or setup something similar
+            - Q & A
+          </textarea>
+        </section>
+        <section class="title-and-content" data-markdown>
+          <textarea data-template>
+            ## What was the problem we were trying to solve?
+            - Cornell-specific
+              - Relatively new service
+              - Decentralization of units and IT services
+            - General
+              - Service Health Alerts don't offer very useful notification paths
+          </textarea>
+        </section>
+        <section class="title-and-content" data-markdown>
+          <textarea data-template>
+            ## Solution overview and demo
+            - What's Included
+              - Azure Function App
+                - HTTP Trigger Function
+                - Written in JavaScript (ESM)
+              - GitHub Actions Workflow
+                - Can be configured and used to build and deploy the Function App
+              - Dependabot.yml
+                - Configured to check daily for dependency updates
+              - Example local.settings.json
+                - Necessary to configure/run locally
+              - Minimal ESlint and Prettier development configs
+                - Included in package.json
+            - Repo
+              - <https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint>
+            - Live Demo
+          </textarea>
+        </section>
+        <section class="title-and-content" data-markdown>
+          <textarea data-template>
+            ## Challenges we encountered
+            - Azure Functions Core Tools was "breaking" our deployment workflows
+            - Looking for best ways to identify different alert types
+            - Making available to all subscriptions
+          </textarea>
+        </section>
+        <section class="title-and-content" data-markdown>
+          <textarea data-template>
+            ## Guidance for others to leverage<br>this solution or setup something similar
+            - Start at the repo README
+              - <https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint#readme>
+            - Open an issue or start a discussion at the repo
+              - <https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/issues>
+              - <https://github.com/CU-CommunityApps/ct-az-common-alert-endpoint/issues>
+            - Reach out to me directly
+              - <ms388@cornell.edu>
+            - Related Projects
+              - Starter Template for Node.js Function Apps
+                - <https://github.com/CU-CommunityApps/ct-azure-function-app-nodejs-starter>
+              - GitHub Action for sending notifications to an MS Teams webhook
+                - <https://github.com/mikesprague/teams-incoming-webhook-action>
+          </textarea>
+        </section>
+        <section class="thank-you">
+          <h2>Q & A</h2>
+          <img src="./thank-you.png" />
+        </section>
+      </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+        width: "100%",
+        height: "100%",
+        autoAnimate: false,
+        autoAnimateUnmatched: false,
+        transition: "fade",
+        backgroundTransition: "none",
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+
+      // do not remove
+      // method to manage showing cu logo or top watermark (text)
+      const toggleLogoAndWatermark = (slide) => {
+        const elToModify = document.querySelector(
+          "div.slide-background.present"
+        );
+        const watermarkEl = document.querySelector(".cu-watermark");
+        if (
+          slide.classList.contains("show-cu-logo") &&
+          slide.classList.contains("present") &&
+          !slide.classList.contains("past") &&
+          !slide.classList.contains("future")
+        ) {
+          elToModify.classList.add("cu-logo-bg");
+          elToModify.classList.remove("show-cu-logo");
+          watermarkEl.style.visibility = "hidden";
+        } else {
+          elToModify.classList.remove("cu-logo-bg");
+          watermarkEl.style.visibility = "visible";
+        }
+      };
+      // add our method to ready and slidetransitionend events
+      Reveal.on("ready", (event) => {
+        toggleLogoAndWatermark(event.currentSlide);
+      });
+      Reveal.on("slidetransitionend", (event) => {
+        toggleLogoAndWatermark(event.currentSlide);
+      });
+    </script>
+  </body>
+</html>
