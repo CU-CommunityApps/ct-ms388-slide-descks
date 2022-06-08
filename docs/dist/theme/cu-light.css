@@ -432,6 +432,9 @@ section.section-header.present ul li {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
+section.section-header.present.section-header-center {
+  text-align: center !important;
+}
 
 .thank-you {
   margin-top: 2rem !important;
