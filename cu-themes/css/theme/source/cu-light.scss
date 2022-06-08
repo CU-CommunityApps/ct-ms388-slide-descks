@@ -140,13 +140,33 @@ section.has-light-background {
   }
 }
 
-.section-header {
-  section.section-header {
-    margin-top: -15rem !important;
+section.section-header.present {
+  margin-top: 2rem !important;
+
+  h2 {
+    text-align: left !important;
+    margin-left: 2rem;
   }
 
   h3 {
     font-size: 3rem !important;
+  }
+
+  ul {
+    width: 90%;
+
+    li {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+}
+
+.thank-you {
+  margin-top: 2rem !important;
+
+  h2 {
+    text-align: left !important;
   }
 }
 

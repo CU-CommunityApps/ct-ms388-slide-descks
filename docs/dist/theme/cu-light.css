@@ -415,11 +415,29 @@ section.has-light-background h4 {
   margin-bottom: 1rem;
 }
 
-.section-header section.section-header {
-  margin-top: -15rem !important;
+section.section-header.present {
+  margin-top: 2rem !important;
 }
-.section-header h3 {
+section.section-header.present h2 {
+  text-align: left !important;
+  margin-left: 2rem;
+}
+section.section-header.present h3 {
   font-size: 3rem !important;
+}
+section.section-header.present ul {
+  width: 90%;
+}
+section.section-header.present ul li {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.thank-you {
+  margin-top: 2rem !important;
+}
+.thank-you h2 {
+  text-align: left !important;
 }
 
 .reveal h3 {
