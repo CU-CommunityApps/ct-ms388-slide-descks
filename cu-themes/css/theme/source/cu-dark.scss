@@ -115,9 +115,10 @@ section.has-light-background {
   color: $darkWarmGrey;
 }
 
-.title-slide {
+.title-slide,
+.thank-you {
   text-align: left;
-  padding-top: 15rem;
+  padding-top: 5rem !important;
   padding-left: 5rem;
 
   h2 {
@@ -141,12 +142,28 @@ section.has-light-background {
 }
 
 .section-header {
-  section.section-header {
-    margin-top: -15rem !important;
+  margin-top: 2rem !important;
+
+  h2 {
+    text-align: left !important;
+    margin-left: 2rem;
   }
 
   h3 {
     font-size: 3rem !important;
+  }
+
+  ul {
+    width: 90%;
+
+    li {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+  }
+
+  &.section-header-center h2 {
+    text-align: center !important;
   }
 }
 
