@@ -393,12 +393,14 @@ section.has-light-background h4 {
   color: #a2998b;
 }
 
-.title-slide {
+.title-slide,
+.thank-you {
   text-align: left;
-  padding-top: 15rem;
+  padding-top: 5rem !important;
   padding-left: 5rem;
 }
-.title-slide h2 {
+.title-slide h2,
+.thank-you h2 {
   color: #f7f7f7 !important;
 }
 
@@ -415,11 +417,25 @@ section.has-light-background h4 {
   margin-bottom: 1rem;
 }
 
-.section-header section.section-header {
-  margin-top: -15rem !important;
+.section-header {
+  margin-top: 2rem !important;
+}
+.section-header h2 {
+  text-align: left !important;
+  margin-left: 2rem;
 }
 .section-header h3 {
   font-size: 3rem !important;
+}
+.section-header ul {
+  width: 90%;
+}
+.section-header ul li {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+.section-header.section-header-center h2 {
+  text-align: center !important;
 }
 
 .reveal h3 {

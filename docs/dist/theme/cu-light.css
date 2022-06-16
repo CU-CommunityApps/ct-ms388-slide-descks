@@ -393,12 +393,14 @@ section.has-light-background h4 {
   color: #a2998b;
 }
 
-.title-slide {
+.title-slide,
+.thank-you {
   text-align: left;
-  padding-top: 15rem;
+  padding-top: 5rem !important;
   padding-left: 5rem;
 }
-.title-slide h2 {
+.title-slide h2,
+.thank-you h2 {
   color: #222 !important;
 }
 
@@ -415,32 +417,25 @@ section.has-light-background h4 {
   margin-bottom: 1rem;
 }
 
-section.section-header.present {
+.section-header {
   margin-top: 2rem !important;
 }
-section.section-header.present h2 {
+.section-header h2 {
   text-align: left !important;
   margin-left: 2rem;
 }
-section.section-header.present h3 {
+.section-header h3 {
   font-size: 3rem !important;
 }
-section.section-header.present ul {
+.section-header ul {
   width: 90%;
 }
-section.section-header.present ul li {
+.section-header ul li {
   font-size: 2rem;
   margin-bottom: 1rem;
 }
-section.section-header.present.section-header-center {
+.section-header.section-header-center h2 {
   text-align: center !important;
-}
-
-.thank-you {
-  margin-top: 2rem !important;
-}
-.thank-you h2 {
-  text-align: left !important;
 }
 
 .reveal h3 {
